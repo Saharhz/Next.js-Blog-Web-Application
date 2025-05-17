@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { ReactNode } from "react";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const grotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
@@ -25,9 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={grotesk.className}>
+        <nav className="bg-gray-800 text-white p-4 flex gap-4">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
+          <Link href="/blog/create" className="hover:underline">
+            Create
+          </Link>
+          <Link href="/about" className="hover:underline">
+            About
+          </Link>
+        </nav>
         {children}
       </body>
     </html>
