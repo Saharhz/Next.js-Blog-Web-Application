@@ -15,7 +15,7 @@ export default function comments({ blogId }: { blogId: string }) {
   }
   return (
     <div>
-      <h3>Comments</h3>
+      <h3 className="text-lg font-semibold mb-2">Comments</h3>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
